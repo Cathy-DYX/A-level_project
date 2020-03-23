@@ -4,7 +4,7 @@ Wand==0.5.6
 imageio==2.5.0
 Pillow==6.1.0
 pytesseract==0.3.0
-pdftotext==2.1.2
+pdftotext==0.81.0
 
 dj-database-url==0.5.0
 Django==2.1.5
