@@ -8,10 +8,10 @@ class User(models.Model):
     password = models.CharField(max_length=20)
     email = models.EmailField(max_length=100, null=True)
 
-    # 定义表的元数据
+    # Meta data
     class Meta:
         db_table = 'User'  # set database name
-        ordering = ['username']  # 设置排序字段
+        ordering = ['username']  # set ordering
 
 
 # Create folder model
@@ -20,10 +20,10 @@ class Folder(models.Model):
     folder_name = models.CharField(max_length=60)
     username = models.ForeignKey(User, db_column='username', on_delete=models.CASCADE)
 
-    # 定义表的元数据
+    # Meta data
     class Meta:
-        db_table = 'Folder'  # 定义表名
-        ordering = ['folder_id']  # 设置排序字段
+        db_table = 'Folder'  # set database name
+        ordering = ['folder_id']  # set ordering
 
 
 # Create set model
@@ -33,11 +33,10 @@ class Set(models.Model):
     # delete the object if the folder is deleted
     folder_id = models.ForeignKey(Folder, db_column='folder_id', on_delete=models.CASCADE)
 
-    # 定义表的元数据
+    # Meta data
     class Meta:
-        db_table = 'Set'  # 定义表名
-        ordering = ['set_id']  # 设置排序字段
-
+        db_table = 'Set'  # set database name
+        ordering = ['set_id']  # set ordering
 
 # Create question model
 class Question(models.Model):
@@ -47,7 +46,7 @@ class Question(models.Model):
     level = models.IntegerField(default=1)
     set_id = models.ForeignKey(Set, db_column='set_id', on_delete=models.CASCADE)
 
-    # 定义表的元数据
+    # Meta data
     class Meta:
-        db_table = 'Question'  # 定义表名
-        ordering = ['question_id']  # 设置排序字段
+        db_table = 'Question'  # set database name
+        ordering = ['question_id']  # set ordering

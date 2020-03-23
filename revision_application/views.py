@@ -221,14 +221,14 @@ def add(request, folder_id):  # DEBUGGING - don't pass in folder_id
 def delete_folder(request):
     # check whether we are deleting a folder or a set
     if 'folder_id' in request.GET:
-        # 取出URL后面的folder_id参数
+        # get the 'folder_id' parameter
         folder_id = request.GET['folder_id']
         # Delete data
         f = Folder.objects.get(folder_id=folder_id)
         f.delete()
         return HttpResponseRedirect('/home/')
     elif 'set_id' in request.GET:
-        # 取出URL后面的set_id参数
+        # get the 'set_id' parameter
         set_id = request.GET['set_id']
         # Delete data
         s = Set.objects.get(set_id=set_id)
