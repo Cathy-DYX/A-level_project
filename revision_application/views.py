@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 
 from .forms import LoginForm, RegistrationForm, UploadImageForm, UploadPdfForm
 from .models import User, Folder, Set, Question
-from .ocr import pdf_to_text, img_to_text
+# from .ocr import pdf_to_text, img_to_text
 
 import os
 
@@ -12,48 +12,48 @@ import os
 # region Upload images,PDF & OCR
 
 
-def upload(request):
-    if request.method == 'POST':
-        print(request.POST)  # testing
-        if 'upload_image' in request.POST:
-            img_form = UploadImageForm(request.POST, request.FILES)
-            if img_form.is_valid():
-                # store the file inside folder - 'upload'
-                store_uploaded_file(request.FILES['file'])
-                path = 'upload/' + request.FILES['file'].name
-                img_to_text(path)
-                delete_file(path)
-                return HttpResponse('<h5>Upload Successful</h5>')
-
-        elif 'upload_pdf' in request.POST:
-            pdf_form = UploadPdfForm(request.POST, request.FILES)
-            if pdf_form.is_valid():
-                # store the file inside folder - 'upload'
-                store_uploaded_file(request.FILES['file'])
-                path = 'upload/' + request.FILES['file'].name
-                pdf_to_text(path)
-                delete_file(path)
-                return HttpResponse('<h5>Upload Successful</h5>')
-    else:
-        img_form = UploadImageForm()
-        pdf_form = UploadPdfForm()
-
-    if 'Upload_image' in request.POST:
-        return render(request, 'upload.html', {'form': img_form})
-    else:
-        return render(request, 'upload.html', {'form': pdf_form})
-
-
-def store_uploaded_file(f):
-    path = 'upload/' + f.name
-    with open(path, 'wb+') as destination:
-        for chunk in f.chunks():
-            destination.write(chunk)
-
-
-def delete_file(path):
-    if os.path.exists(path):
-        os.remove(path)
+# def upload(request):
+#     if request.method == 'POST':
+#         print(request.POST)  # testing
+#         if 'upload_image' in request.POST:
+#             img_form = UploadImageForm(request.POST, request.FILES)
+#             if img_form.is_valid():
+#                 # store the file inside folder - 'upload'
+#                 store_uploaded_file(request.FILES['file'])
+#                 path = 'upload/' + request.FILES['file'].name
+#                 img_to_text(path)
+#                 delete_file(path)
+#                 return HttpResponse('<h5>Upload Successful</h5>')
+#
+#         elif 'upload_pdf' in request.POST:
+#             pdf_form = UploadPdfForm(request.POST, request.FILES)
+#             if pdf_form.is_valid():
+#                 # store the file inside folder - 'upload'
+#                 store_uploaded_file(request.FILES['file'])
+#                 path = 'upload/' + request.FILES['file'].name
+#                 pdf_to_text(path)
+#                 delete_file(path)
+#                 return HttpResponse('<h5>Upload Successful</h5>')
+#     else:
+#         img_form = UploadImageForm()
+#         pdf_form = UploadPdfForm()
+#
+#     if 'Upload_image' in request.POST:
+#         return render(request, 'upload.html', {'form': img_form})
+#     else:
+#         return render(request, 'upload.html', {'form': pdf_form})
+#
+#
+# def store_uploaded_file(f):
+#     path = 'upload/' + f.name
+#     with open(path, 'wb+') as destination:
+#         for chunk in f.chunks():
+#             destination.write(chunk)
+#
+#
+# def delete_file(path):
+#     if os.path.exists(path):
+#         os.remove(path)
 
 # endregion
 

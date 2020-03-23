@@ -20,5 +20,5 @@ urlpatterns = [
     path('quiz_answer/', views.quiz_answer, name='quiz_answer'),
     path('result/', views.result, name='result'),
     path('logout/',  views.logout, name='logout'),
-    path('upload/', views.upload, name='upload'),
+    # path('upload/', views.upload, name='upload'),
 ]
