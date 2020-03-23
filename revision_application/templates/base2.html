@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/public.css' %}">
+    <style>
+        div.header {
+            padding-top: 0em;
+            padding-bottom: 0em;
+        }
+
+        .flexcontainer {
+            display: flex;
+            width: 100%;
+            height: 100px;
+            align-items: center;
+        }
+
+        .itemcenter {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .itemright {
+            margin-left: auto;
+            min-height: 30px;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+
+<div class="header flexcontainer">
+  <div class="itemcenter">
+      <font size="6">{% block header %} {% endblock %}</font>
+  </div>
+  <div class="itemright">
+      <a href="/home/">&nbsp;Home</a> | <a href="/settings/">Settings</a> | <a href="/logout/">Log out</a>&nbsp;
+  </div>
+</div>
+
+<hr width="100%" size="1" color='#cacccc'/>
+{% block body %} {% endblock %}
+<br>
+<div class="footer">
+    <hr width="100%" size="1" color='#cacccc'/>
+    <p style="color:#cacccc">Revision application by Cathy Ding<p/>
+</div>
+
+</body>
+</html>

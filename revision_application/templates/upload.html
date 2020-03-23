@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload files</title>
+</head>
+<body>
+    <form action="/upload/" method = 'POST' enctype = "multipart/form-data">
+        {% csrf_token %}
+        <input type = "file" name = "file"> <br><br>
+        <input type = "submit" name = "upload_image">
+
+    </form>
+
+    <form action="/upload/" method = 'POST' enctype = "multipart/form-data">
+        {% csrf_token %}
+        <input type = "file" name = "file"> <br><br>
+        <input type = "submit" name = "upload_pdf">
+
+    </form>
+
+</body>
+</html>

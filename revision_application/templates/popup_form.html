@@ -1,0 +1,28 @@
+<div class="form-popup" id="myForm">
+  <!--get the url to decide whether to add folder or add set-->
+  {% if request.META.PATH_INFO == "/home/" %}
+    <form action="/add/" class="form-container">
+    <h1>Create Folder</h1>
+      <label class="text1"><b>Folder Name:</b></label>
+      <input type="text" class="text1" placeholder="Enter folder name" name="folder_name" required>
+
+  {% else %}
+    <form action="/add/{{folder_id}}" class="form-container">
+      <h1>Create Set</h1>
+        <label class="text1"><b>Set Name:</b></label>
+        <input type="text" class="text1" placeholder="Enter set name" name="set_name" required>
+  {% endif %}
+    <button type="submit" class="btn login">Create</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>

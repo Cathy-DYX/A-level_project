@@ -1,0 +1,67 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %}Quiz Result{% endblock %}
+
+{% block header %}Topic 3 - Result{% endblock %}
+
+{% block body %}
+
+<style>
+    progress {
+      display: block;  /* default: inline-block */
+      width: 600px;
+      margin: 1em auto;
+      border: none;
+      background: green;
+      /* box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2); */
+    }
+    progress::-moz-progress-bar {
+      background: red;
+      /* box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4), 0 2px 5px 0px rgba(0,0,0,0.3); */
+
+    }
+    /* webkit */
+    @media screen and (-webkit-min-device-pixel-ratio:0) {
+        progress {
+        height: 30px;
+      }
+    }
+    progress::-webkit-progress-bar {
+        background: red;
+        box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4), 5px 5px 5px 0px rgba(0,0,0,0.3);
+    }
+    progress::-webkit-progress-value {
+        background: green;
+        box-shadow: inset 0 -2px 4px rgba(0,0,0,0.4);
+    }
+    /* environment styles */
+
+    .number_div {
+        text-align: right;
+        padding-right: 340px;
+    }
+
+</style>
+
+<br>
+<div align="center">
+    <b class="text6">70%</b>
+    <br><br>
+</div>
+
+<progress max="100" value="70"></progress>
+
+<div class="number_div text3">
+    <p>7/10</p>
+</div>
+
+<br><br>
+
+<div align="center">
+    <a href="#">
+        <button class="btn btn1" align="center">&nbsp;Return&nbsp;</button>
+    </a>
+</div>
+
+{% endblock %}

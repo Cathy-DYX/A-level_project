@@ -1,0 +1,238 @@
+
+/* background colour and font style*/
+body{
+    background-color: #e8f5fa;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
+/* blue header in all the web pages  */
+
+/* for discarded base 2 */
+/* div.header {
+    text-align: center;
+    font-size: 1.5em;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+    background-color: rgba(169, 222, 255, 0.9);
+    border: solid 1px;
+    border-radius: 20px;
+    border-color: rgb(188, 188, 188);
+} */
+
+div.header {
+    /* text-align: center; */
+    font-size: 1.5em;
+    padding-top: 1.2em;
+    padding-bottom: 1.2em;
+    background-color: rgba(169, 222, 255, 0.9);
+    border: solid 1px;
+    border-radius: 20px;
+    border-color: rgb(188, 188, 188);
+}
+
+/* unvisited link */
+a:link {
+    font-size: 14px;
+    color: #333333;
+    text-decoration: none;
+}
+
+/* visited link */
+a:visited {
+    color: #333333;
+    text-decoration: none;
+}
+
+/* mouse over link */
+a:hover {
+    color: #0066CC;
+}
+
+/* footer in all the web pages */
+div.footer {
+    text-align: center;
+}
+
+
+.header {
+  font-weight: 999;
+  color: #073e75;
+  font-family: "Comic Sans MS";
+  text-shadow: 0 0 2px #073e75;
+}
+
+/* ____________________________________________________________ */
+
+/* buttons */
+.btn {
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* 'start quiz' button */
+.btn1{
+    background-color: #77c7bb; /* Green */
+    color: white;
+    border-radius: 8px;
+}
+
+/* 'Create folder' button */
+.btn2{
+    background-color: inherit;
+}
+.btn2:hover {
+    background-color: #77c7bb;
+    color: white;
+    border-radius: 8px;
+}
+
+
+/* ____________________________________________________________ */
+
+/* folder layout */
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 20%;
+  height: 220px;
+  text-align: center;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/* ____________________________________________________________ */
+
+.text1 {
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.text2 {
+    font-size: 15px;
+}
+
+.text3 {
+    color: #073e75;
+    text-weight: bold;
+    font-size: 20px;
+}
+
+/* 'Wrong' */
+.text4 {
+    color: #e50000; /* red */
+    font-size: 30px;
+}
+
+/* 'Correct' */
+.text5 {
+    color: #329932; /* green */
+    font-size: 30px;
+}
+
+.text6 {
+    color: #073e75;
+    font-size: 50px;
+}
+
+
+/* ____ */
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
+}
+
+/* ____________________________________________________________ */
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  /* bottom: 0; */
+  /* right: 15px; */
+  /* top: 22.5%; */
+  /* bottom: 22.5%; */
+  /* left: 37%; */
+  /* right: 37%; */
+
+  /* left: 50%; */
+  /* right: 50%; */
+  /* margin-right: -25%; */
+  /* transform: translate(-50%, -25%); */
+
+  top: 110px;
+  left: 20px;
+
+  z-index: 9;
+  box-shadow: 5px 5px 3px #888888;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: #a1c3d1;
+}
+
+/* Full-width input fields */
+.form-container input[type=text] {
+  width: 80%;
+  padding: 15px;
+  margin: 5px 0px 20px 0px;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, set the background to a darker gray */
+.form-container input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* style for the submit and login button */
+.form-container .btn {
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+/* Add a green background to the sign-up button */
+.form-container .login {
+  background-color: #56dba2; /* green */
+}
+
+/* Add a red background  to the cancel button */
+.form-container .cancel {
+  background-color: #f55d5d;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}

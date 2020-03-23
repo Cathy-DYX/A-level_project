@@ -1,0 +1,111 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %}Edit{% endblock %}
+
+{% block header %}Edit{% endblock %}
+
+{% block body %}
+
+<style>
+    table#t01 td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        text-align: left;
+        table-layout: fixed;
+        /* border: 1px solid #c2c5cc; */
+        line-height: 25px;
+        font-family: Helvetica;
+    }
+
+    .underline {
+        padding-bottom: 3px;
+        border-bottom: 3px solid currentColor;
+        min-width: 140px;
+        border-bottom-color: #77c7bb;
+    }
+
+    /* Add styles to the form container */
+    /* .form-container { */
+    /*   max-width: 300px; */
+    /*   padding: 10px; */
+    /*   background-color: #a1c3d1; */
+    /* } */
+
+    /* input fields */
+    .input_box {
+      width: 380px;
+      height: 50px;
+      padding: 15px;
+      margin: 5px 0px 5px 0px;
+      background: #fafafa;
+    }
+
+    .col1 {
+        width: 5%;
+    }
+    .col2 {
+        width: 45%;
+    }
+    .col3 {
+        width: 45%;
+    }
+    .col4 {
+        width: 5%;
+    }
+
+</style>
+
+<div>
+    <a href="#">
+        <button class="btn btn2 underline">Upload CSV File</button>
+    </a>
+    <a href="#">
+        <button class="btn btn2 underline">Upload Image</button>
+    </a>
+    <a style="float: right;" href="/questions/"><button class="btn btn1">Done</button></a>
+</div>
+<br>
+
+<div style="overflow-x:auto;">
+    <table border="0" width="90%" align="center" id="t01">
+
+        {% for item in question_list %}
+            <tr id="tr">
+                <td class="col1">{{ forloop.counter }}</td>
+                <td class="col2"><input type="text" class="text1 input_box" value="{{ item.question }}" required></td>
+                <td class="col3"><input type="text" class="text1 input_box" value="{{ item.answer }}" required></td>
+                <td class="col4"><a href="/edit/del_q/{{ item.question_id }}"><img src="{% static 'images/bin.png' %}" height="30" width="25"></a></td></tr>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <br>
+    <div align="center">
+        <a href="#">
+            <a href="/edit/add_q/{{ question_list.0.set_id.set_id }}"><button class="btn btn1" id="add"><font size="5">✚</font>Add Question</button></a>
+        </a>
+    </div>
+</div>
+
+<script>
+<!--function add_question(list) {-->
+<!--    document.write(7);-->
+<!--    question_list[question_list.length] = "";-->
+<!--}-->
+
+function add_question() {
+    var row = document.createElement("TR");
+<!--    var newQ = document.createTextNode("<td class='col1'>1</td><td class='col2'><input type='text' class='text1 input_box' value='question' required></td><td class='col3'><input type='text' class='text1 input_box' value='answer' required></td><td class='col4'><a href='#'><img src='{% static "images/bin.png" %}' height='30' width='25'></a></td></tr>");-->
+    var newQ = document.getElementsByTagName("TR");
+<!--    row.appendChild(newQ);-->
+    var x = document.createNode(docujment.getElementById("tr"))
+    document.write(document.body)
+    document.getElementById("t01").appendChild(x);
+}
+
+
+</script>
+
+{% endblock %}

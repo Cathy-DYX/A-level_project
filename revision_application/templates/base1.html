@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/public.css' %}">
+</head>
+
+<body>
+
+<div class="header" align="center">
+    <font size="6">{% block header %} {% endblock %}</font>
+</div>
+
+<hr width="100%" size="1" color='#cacccc'/>
+{% block body %} {% endblock %}
+<br><br><br>
+<div class="footer">
+    <hr width="100%" size="1" color='#cacccc'/>
+    <p style="color:#cacccc">Revision application by Cathy Ding<p/>
+</div>
+
+</body>
+</html>

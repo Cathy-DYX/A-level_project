@@ -1,0 +1,42 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %}Sets{% endblock %}
+
+{% block header %}Set name{% endblock %}
+
+{% block body %}
+
+<style>
+
+
+</style>
+
+<div>
+    <a href="#">
+        &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn2" onclick="openForm()"><font size="5">✚</font>&nbsp;Create Set</button>
+    </a>
+    <a href="/home/">Go back</a>
+    <a style="float: right;" href="/quiz_question/?folder={{ folder_id }}"><button class="btn btn1">Start Quiz</button></a>
+
+</div>
+<br><br>
+
+{% include "popup_form.html" %}
+<div class="row">
+    {% for set in sets %}
+    <div class="column">
+        <a href="/questions/?set_id={{ set.set_id }}">
+            <img src="{% static 'images/folder.png' %}" height="100" width="120"><br><br>
+            <b class="text3">{{ set.set_name }}</b>
+        </a>
+        <br>
+        <!--delete set-->
+        <a href="/del/?set_id={{ set.set_id}}" style="color: silver;">
+            Delete
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

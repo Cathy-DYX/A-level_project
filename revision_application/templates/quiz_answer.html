@@ -1,0 +1,67 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block header %}Topic 3 - Quiz{% endblock %}
+
+{% block body %}
+
+<style>
+    .question_description {
+        padding-right: 15%;
+        padding-left: 15%;
+    }
+
+    .next_div {
+        padding-left: 47%;
+    }
+
+    .number_div {
+        padding-right: 25px;
+    }
+</style>
+
+<div class="flexcontainer">
+    <b class="itemcenter text5">Correct!</b>
+<!--    <b class="itemcenter text4">Wrong</b>-->
+    <a href="#" class="itemright"><button class="btn btn1">&nbsp;&nbsp;Quit&nbsp;&nbsp;</button></a>
+</div>
+
+<div class="text1 question_description">
+    <p align="center">sdfwoe fnwo iefo isdfw oefnwoi efoisd fwo efn woiefoi sdfw oefnwoie
+        foi sdfwoef nwoiefoi sdfwoe f n woie foisd oefnwo iefoi
+        foi sdfwoef nw oiefoisd fw oef nw oief oisdf woefn woi efoi
+        fo isdfwoe fnw  o ief oisd fwoe fn woie fois dfwoe fn woi efoi
+        foi sdfw oef nwoi efo isdf woe fn woi efoi s d fwo ef nwoi efoi
+        fo isdf woef nwo iefois dfwo ef nw oiefo isdf wo efnwoi efoi
+        foi sd fwoefn woi efois dfwoe fn woief oi sdfw o efn wo iefo i
+        fo is dfw oefn woi efo isd fwo efnw oi efoi sdf woe f nw oi efoi</p>
+    <p class="text3">Your Answer:</p>
+    <p>sdfwoe fnwo iefo isdfw oefnwoi efoisd fwo efn woiefoi sdfw oefnwoie
+        foi sdfwoef nwoiefoi sdfwoe f n woie foisd oefnwo iefoi
+        foi sdfwoef nw oiefoisd fw oef nw oief oisdf woefn woi efoi
+        fo isdfwoe fnw  o ief oisd fwoe fn woie fois dfwoe fn woi efoi
+        foi sdfw oef nwoi e</p>
+    <p class="text3">Correct Answer:</p>
+    <p>sdfwoe fnwo iefo isdfw oefnwoi efoisd fwo efn woiefoi sdfw oefnwoie
+        foi sdfwoef nwoiefoi sdfwoe f n woie foisd oefnwo iefoi
+        foi sdfwoef nw oiefoisd fw oef nw oief oisdf woefn woi efoi
+        fo isdfwoe fnw  o ief oisd fwoe fn woie fois dfwoe fn woi efoi
+        foi sdfw oef nwoi e</p>
+</div>
+
+<div class="next_div">
+    <a href="#">
+        <button class="btn btn1" align="center">&nbsp;Next&nbsp;</button>
+    </a>
+    <a href="#">
+        <b class="text2">Override - I was right</b>
+    </a>
+</div>
+
+<div align="right">
+    <p class="text3 number_div">1/10&nbsp;&nbsp;&nbsp;</p>
+</div>
+
+{% endblock %}

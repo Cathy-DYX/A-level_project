@@ -1,0 +1,39 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block header %}Home{% endblock %}
+
+{% block body %}
+
+<div>
+    <a href="#">
+        &nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn2" onclick="openForm()"><font size="5">✚</font>&nbsp;Create Folder</button>
+    </a>
+    <a style="float: right;" href="/quiz_question/?range=all"><button class="btn btn1">Start Quiz</button></a>
+</div>
+<br><br>
+
+{% include "popup_form.html" %}
+
+<div class="row">
+    {% for folder in folders %}
+    <div class="column">
+        <a href="/sets/?folder_id={{ folder.folder_id }}">
+            <img src="{% static 'images/folder.png' %}" height="100" width="120"><br><br>
+            <b class="text3">{{ folder.folder_name }}</b>
+        </a>
+        <br>
+        <!--delete folder-->
+        <a href="/del/?folder_id={{ folder.folder_id}}" style="color: silver;">
+            Delete
+        </a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,80 @@
+{% extends "base1.html" %}
+{% load static %}
+{% block title %}Customer Registration{% endblock %}
+{% block header %}Registration{% endblock %}
+{% block body %}
+
+<style type="text/css">
+    table {
+        border-collapse: collapse;
+    }
+
+    .border {
+        border: 1px solid #5B96D0;
+    }
+
+    .col1 {
+        background-color: #A6D2FF;
+        text-align: right;
+        padding-right: 10px;
+        border: 1px solid #5B96D0;
+        line-height: 50px;
+        font-family: Helvetica;
+    }
+    .col2 {
+        padding-left: 10px;
+        border: 1px solid #5B96D0;
+        line-height: 50px;
+    }
+
+    .textfield {
+        height: 20px;
+        width: 200px;
+        border: 1px solid #999999;
+        text-align: left;
+        font-size: medium;
+        line-height: 50px;
+    }
+</style>
+
+<form action="/register/" method = "POST">
+    {% csrf_token %}
+    <ul>
+        {% for field, errors in form.errors.items %}
+        {% for message in errors%}
+        <li class="error">{{ message }}</li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+
+    <div class="text3" align="center">Please fill in the following details</div>
+    <br>
+    <table width="60%" border="0" align="center" class="border">
+        <col width="80">
+        <col width="130">
+        <tr>
+            <td height="27" class="col1">Username:</td>
+            <td class="col2">{{ form.username }}</td>
+        </tr>
+        <tr>
+            <td height="27" class="col1">Password:</td>
+            <td class="col2">{{ form.password1 }}</td>
+        </tr>
+        <tr>
+            <td height="27" class="col1">Re-enter password:</td>
+            <td class="col2">{{ form.password2 }}</td>
+        </tr>
+        <tr>
+            <td height="27" class="col1">Email:</td>
+            <td class="col2">{{ form.email }}</td>
+        </tr>
+
+    </table>
+    <br>
+    <div align="center">
+        <input type="image" src="{% static 'images/submit.png' %}" height="50" width="106"/><br>
+        <a href="/login/" class="text2"><u>Login</u></a>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base2.html" %}
+{% load static %}
+
+{% block title %}Sets{% endblock %}
+
+{% block header %}Set name{% endblock %}
+
+{% block body %}
+
+<style type="text/css">
+    table#t01 td {
+        padding-top: 5px;
+        padding-left: 20px;
+        text-align: left;
+        table-layout: fixed;
+        /* border: 1px solid black; */
+        line-height: 25px;
+        border-bottom: 1px solid #ddd;
+        color: #073e75; /* dark blue */
+        font-size: 18px;
+    }
+    table#t01 th {
+        height: 40px;
+        color: #073e75; /* dark blue */
+        font-size: 20px;
+        font-family: Helvetica;
+    }
+
+    /* 奇偶行换色 */
+    tr:nth-child(even) {
+        background-color: #dfecf2;
+        /* background-color: #ddebed; #f2f5f4*/
+    }
+
+</style>
+
+<div>
+    <a href="/sets/?folder_id={{ folder_id }}">Go back</a>
+    <a style="float: right;" href="/quiz_question/?set_id={{ set_id }}"><button class="btn btn1">Start Quiz</button></a>
+    <a style="float: right;" href="/edit/?set_id={{ set_id }}"><button class="btn btn1">Edit</button></a>
+</div>
+<br><br><br>
+
+<div style="overflow-x:auto;">
+<table width="100%" border="0" align="center" id="t01">
+    <tr bgcolor="AACBDA">
+        <th width="50%">Question</th>
+        <th width="50%">Answer</th>
+    </tr>
+
+    {% for question in questions %}
+    <tr><td>{{ question.question }}</td><td>{{ question.answer }}</td></tr>
+    {% endfor %}
+
+</table>
+</div>
+
+
+
+
+{% endblock %}
